@@ -6,7 +6,7 @@
 
 - 世上无难事，只怕有心人！
     
-[![stars](https://badgen.net/github/stars/fuzhengwei/fuzhengwei.github.io?icon=github&color=4ab8a1)](https://github.com/fuzhengwei/fuzhengwei.github.io) [![forks](https://badgen.net/github/forks/fuzhengwei/fuzhengwei.github.io?icon=github&color=4ab8a1)](https://github.com/fuzhengwei/fuzhengwei.github.io) 
+[//]: # ([![stars]&#40;https://badgen.net/github/stars/fuzhengwei/fuzhengwei.github.io?icon=github&color=4ab8a1&#41;]&#40;https://github.com/fuzhengwei/fuzhengwei.github.io&#41; [![forks]&#40;https://badgen.net/github/forks/fuzhengwei/fuzhengwei.github.io?icon=github&color=4ab8a1&#41;]&#40;https://github.com/fuzhengwei/fuzhengwei.github.io&#41; )
 
-[GitHub](<https://github.com/fuzhengwei/fuzhengwei.github.io>)
+[//]: # ([GitHub]&#40;<https://github.com/fuzhengwei/fuzhengwei.github.io>&#41;)
 [开始阅读](README.md)
