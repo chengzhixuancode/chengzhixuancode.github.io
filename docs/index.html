@@ -7,7 +7,6 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="/assets/css/vue.css">
-  <link rel="stylesheet" href="/assets/css/gitalk.css">
   <script>
       var _hmt = _hmt || [];
       (function() {
@@ -21,14 +20,6 @@
 <body>
 <div id="app"></div>
 <script>
-    var gitalkConfig = {
-      clientID: '4a657aa4ae6c0f1862a1',
-      clientSecret: '94793d5bac0c884a8798ea941f7c5bc9fb004720',
-      repo: 'chengzhixuancode.github.io',
-      owner: 'chengzhixuan',
-      admin: ["chengzhixuan"],
-      distractionFreeMode: false
-    };
     window.$docsify = {
       name: '日拱一卒',
       auto2top: true,
@@ -50,36 +41,49 @@
       plugins: [
         function (hook, vm) {
           hook.doneEach(function() {
-            var label, domObj, main, divEle, gitalk;
-            label = md5(decodeURI(vm.route.path.split("/").pop()));
+            var domObj, main, divEle;
             domObj = Docsify.dom;
             main = domObj.getNode("#main");
 
+            // 移除之前的评论容器
             Array.apply(
               null,
-              document.querySelectorAll("div.gitalk-container")
+              document.querySelectorAll("div.giscus-container")
             ).forEach(function(ele) {
               ele.remove();
             });
-      
+
+            // 创建新容器
             divEle = domObj.create("div");
-            divEle.id = "gitalk-container-" + label;
-            divEle.className = "gitalk-container";
-            divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+            divEle.id = "giscus-container";
+            divEle.className = "giscus-container";
+            divEle.style = "width: " + main.clientWidth + "px; margin: 30px auto 20px;";
             domObj.appendTo(domObj.find(".content"), divEle);
-            gitalk = new Gitalk(
-              Object.assign(gitalkConfig, { id: !label ? "home" : label })
-            );
-            gitalk.render("gitalk-container-" + label);
+
+            // 加载 Giscus
+            var script = document.createElement("script");
+            script.src = "https://giscus.app/client.js";
+            script.setAttribute("data-repo", "chengzhixuancode/chengzhixuancode.github.io");
+            script.setAttribute("data-repo-id", "R_kgDOOpFe4w");
+            script.setAttribute("data-category", "Comments");
+            script.setAttribute("data-category-id", "DIC_kwDOOpFe484C6XQl");
+            script.setAttribute("data-mapping", "pathname");
+            script.setAttribute("data-strict", "1");
+            script.setAttribute("data-reactions-enabled", "1");
+            script.setAttribute("data-emit-metadata", "0");
+            script.setAttribute("data-input-position", "bottom");
+            script.setAttribute("data-theme", "light");
+            script.setAttribute("data-lang", "zh-CN");
+            script.setAttribute("crossorigin", "anonymous");
+            script.async = true;
+            document.getElementById("giscus-container").appendChild(script);
           });
         }
       ]
-    }                                 
+    }
   </script>
 
-<script src="/assets/js/md5.js"></script>
 <script src="/assets/js/docsify.min.js"></script>
-<script src="/assets/js/gitalk.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
 <script src="/assets/js/docsify-pagination.min.js"></script>
 <script src="/assets/js/zoom-image.js"></script>
