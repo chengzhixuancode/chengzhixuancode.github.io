@@ -1,12 +1,9 @@
 ![logo](_media/logo.png)
 
-# 水手辛巴德
+# 水手辛巴德的 AI 笔记
 
-## 正在思索中...
+## AI 编程学习 & 实践经验总结
 
-- 世上无难事，只怕有心人！
-    
-[//]: # ([![stars]&#40;https://badgen.net/github/stars/fuzhengwei/fuzhengwei.github.io?icon=github&color=4ab8a1&#41;]&#40;https://github.com/fuzhengwei/fuzhengwei.github.io&#41; [![forks]&#40;https://badgen.net/github/forks/fuzhengwei/fuzhengwei.github.io?icon=github&color=4ab8a1&#41;]&#40;https://github.com/fuzhengwei/fuzhengwei.github.io&#41; )
+> 用长期的确定性，对抗短期的不确定性
 
-[//]: # ([GitHub]&#40;<https://github.com/fuzhengwei/fuzhengwei.github.io>&#41;)
 [开始阅读](README.md)
