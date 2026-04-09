@@ -27,20 +27,20 @@
     "screenshot": ""
   },
   {
-    "title": "中文技术文档写作风格指南",
-    "url": "https://github.com/ruanyf/document-style-guide",
-    "excerpt": "清晰、易读的中文技术文档写作指南，社区共建",
-    "category": "写作",
-    "tags": ["写作", "指南"],
-    "addedAt": "2026-04-09",
-    "screenshot": ""
-  },
-  {
     "title": "使用 Claude 3.5 结对编程，效率提升不止一倍",
     "url": "https://developer.aliyun.com/article/1724549",
     "excerpt": "阿里云开发者社区文章，分享 Claude 3.5 结对编程的实践经验",
     "category": "Claude code",
     "tags": ["Claude Code", "结对编程", "效率"],
+    "addedAt": "2026-04-09",
+    "screenshot": ""
+  },
+  {
+    "title": "Java 线程池实践在美团",
+    "url": "https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html",
+    "excerpt": "美团技术团队文章，分享 Java 线程池在生产环境的实践经验",
+    "category": "Java",
+    "tags": ["Java", "线程池","后端"],
     "addedAt": "2026-04-09",
     "screenshot": ""
   }
