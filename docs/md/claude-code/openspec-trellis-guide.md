@@ -148,28 +148,7 @@ OpenSpec 自动：
 
 从需求到上线，三者怎么配合？用"修改手机号"举个完整例子：
 
-```mermaid
-
-graph TD
-A[需求: 支持用户修改手机号] --> B[/opsx propose 生成提案/]
-B --> C[OpenSpec 输出\nproposal + specs + design + tasks]
-C --> D[人工审查确认]
-D --> E[/opsx apply 开始执行/]
-E --> F[Trellis Hook 自动工作]
-F --> G[读取 Trellis 团队规范\n注入上下文]
-G --> H[按 OpenSpec tasks.md\n逐个执行]
-H --> I[执行完成\nralph-loop 自动检查]
-I --> J{检查通过？}
-J -->|否| K[自动重试修复]
-K --> I
-J -->|是| L[生成 code-check-report.md]
-L --> M[人工审查代码]
-M --> N{发现新问题？}
-N -->|是| G
-N -->|否| O[/opsx archive 归档/]
-O --> P[Git 提交代码]
-
-```
+![支持用户修改手机号完整流程](../../_media/image/claude-code/1.png)
 
 ---
 
