@@ -27,9 +27,9 @@
     "screenshot": ""
   },
   {
-    "title": "使用 Claude 3.5 结对编程，效率提升不止一倍",
+    "title": "Claude Code 全攻略：命令大全 + 实战工作流",
     "url": "https://developer.aliyun.com/article/1724549",
-    "excerpt": "阿里云开发者社区文章，分享 Claude 3.5 结对编程的实践经验",
+    "excerpt": "Claude Code 全攻略：命令大全 + 实战工作流",
     "category": "Claude code",
     "tags": ["Claude Code", "结对编程", "效率"],
     "addedAt": "2026-04-09",
@@ -41,6 +41,15 @@
     "excerpt": "美团技术团队文章，分享 Java 线程池在生产环境的实践经验",
     "category": "Java",
     "tags": ["Java", "线程池","后端"],
+    "addedAt": "2026-04-09",
+    "screenshot": ""
+  },
+  {
+    "title": "Claude Code：5核心+42高阶实操技巧",
+    "url": "https://mp.weixin.qq.com/s/QxzRL-PPPkMe9h6i7kjAYw",
+    "excerpt": "效率翻10倍！Claude Code 深度实战全攻略：5大机制+42条技巧，这篇就够了",
+    "category": "Claude code",
+    "tags": ["Claude code", "效率"],
     "addedAt": "2026-04-09",
     "screenshot": ""
   }
