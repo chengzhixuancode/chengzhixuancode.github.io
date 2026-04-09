@@ -3,6 +3,7 @@
 - 🤖 Claude Code
   - [入门使用指南](/md/claude-code/getting-started.md)
   - [最佳实践](/md/claude-code/best-practices.md)
+  - [OpenSpec + Trellis的关系与实践](/md/claude-code/openspec-trellis-guide.md)
   - [进阶技巧](/md/claude-code/advanced-tips.md)
 
 - 🦀 OpenClaw
