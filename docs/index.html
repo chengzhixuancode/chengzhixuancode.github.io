@@ -77,6 +77,11 @@
             script.setAttribute("crossorigin", "anonymous");
             script.async = true;
             document.getElementById("giscus-container").appendChild(script);
+
+            // 初始化文章收藏（如果当前是收藏页面）
+            if (document.getElementById('bookmarks-container')) {
+              setTimeout(initBookmarks, 200);
+            }
           });
         }
       ]
@@ -89,5 +94,184 @@
 <script src="/assets/js/zoom-image.js"></script>
 <script src="/assets/js/prism-bash.js"></script>
 <script src="/assets/js/prism-java.min.js"></script>
+
+<script>
+// 文章收藏功能
+function initBookmarks() {
+  const container = document.getElementById('bookmarks-container');
+  if (!container) return;
+
+  let bookmarks = [];
+  let currentFilter = 'all';
+
+  function renderFilters() {
+    const filterContainer = document.getElementById('bookmarks-filters');
+    const categories = ['all', ...new Set(bookmarks.map(b => b.category))];
+    let html = '';
+    categories.forEach(cat => {
+      const label = cat === 'all' ? '全部' : cat;
+      const activeClass = currentFilter === cat ? 'active' : '';
+      html += `<span class="bookmarks-filter-btn ${activeClass}" data-category="${cat}">${label}</span>`;
+    });
+    filterContainer.innerHTML = html;
+    filterContainer.querySelectorAll('.bookmarks-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentFilter = btn.dataset.category;
+        render();
+      });
+    });
+  }
+
+  function renderCard(bookmark) {
+    let tagsHtml = '';
+    if (bookmark.tags && bookmark.tags.length) {
+      tagsHtml = '<div class="bookmark-tags">' + bookmark.tags.map(tag => `<span class="bookmark-tag">${tag}</span>`).join('') + '</div>';
+    }
+    return `
+      <div class="bookmark-card">
+        <h3 class="bookmark-title">
+          <a href="${bookmark.url}" target="_blank" rel="noopener">${bookmark.title} ↗</a>
+        </h3>
+        <p class="bookmark-excerpt">${bookmark.excerpt}</p>
+        ${tagsHtml}
+        <div class="bookmark-meta">
+          <span>${bookmark.category}</span>
+          <span>${bookmark.addedAt}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderGrid() {
+    const gridContainer = document.getElementById('bookmarks-grid');
+    const filtered = currentFilter === 'all'
+      ? bookmarks
+      : bookmarks.filter(b => b.category === currentFilter);
+    gridContainer.innerHTML = filtered.map(renderCard).join('');
+  }
+
+  function render() {
+    renderFilters();
+    renderGrid();
+  }
+
+  function showLoading(show) {
+    document.getElementById('bookmarks-loading').style.display = show ? 'block' : 'none';
+  }
+
+  function showError(show) {
+    document.getElementById('bookmarks-error').style.display = show ? 'block' : 'none';
+  }
+
+  fetch('/data/bookmarks.json')
+    .then(res => {
+      if (!res.ok) throw new Error('Network error');
+      return res.json();
+    })
+    .then(data => {
+      bookmarks = data;
+      showLoading(false);
+      render();
+    })
+    .catch(err => {
+      console.error('Failed to load bookmarks:', err);
+      showLoading(false);
+      showError(true);
+    });
+}
+</script>
+
+<style>
+.bookmarks-filters {
+  margin-bottom: 20px;
+}
+.bookmarks-filter-btn {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.bookmarks-filter-btn:hover {
+  border-color: #3eaf7c;
+  color: #3eaf7c;
+}
+.bookmarks-filter-btn.active {
+  background: #3eaf7c;
+  color: #fff;
+  border-color: #3eaf7c;
+}
+.bookmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.bookmark-card {
+  border: 1px solid #eaecef;
+  border-radius: 8px;
+  padding: 16px;
+  transition: box-shadow 0.2s;
+  background: #fff;
+}
+.bookmark-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.bookmark-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+.bookmark-title a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+.bookmark-title a:hover {
+  color: #3eaf7c;
+}
+.bookmark-excerpt {
+  font-size: 14px;
+  color: #666;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+.bookmark-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #999;
+}
+.bookmark-tags {
+  margin-top: 8px;
+}
+.bookmark-tag {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 2px 6px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
+}
+@media (max-width: 768px) {
+  .bookmarks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+#bookmarks-loading, #bookmarks-error {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+</style>
+
 </body>
 </html>

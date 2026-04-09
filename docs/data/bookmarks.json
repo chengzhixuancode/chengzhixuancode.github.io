@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Claude Code 官方文档",
+    "url": "https://docs.anthropic.com/claude-code",
+    "excerpt": "Claude Code 官方使用文档，包含完整的功能说明和最佳实践",
+    "category": "AI 工具",
+    "tags": ["Claude Code", "文档"],
+    "addedAt": "2026-04-09",
+    "screenshot": ""
+  },
+  {
+    "title": "docsify.js.org 官方网站",
+    "url": "https://docsify.js.org/",
+    "excerpt": "神奇的文档站点生成器，无需构建，直接编写 Markdown 即可生成网站",
+    "category": "技术文档",
+    "tags": ["docsify", "静态站点"],
+    "addedAt": "2026-04-09",
+    "screenshot": ""
+  },
+  {
+    "title": "GitHub Pages 官方指南",
+    "url": "https://pages.github.com/",
+    "excerpt": "GitHub 提供的免费静态网站托管服务，非常适合个人博客和项目文档",
+    "category": "技术文档",
+    "tags": ["GitHub", "托管"],
+    "addedAt": "2026-04-09",
+    "screenshot": ""
+  },
+  {
+    "title": "中文技术文档写作风格指南",
+    "url": "https://github.com/ruanyf/document-style-guide",
+    "excerpt": "清晰、易读的中文技术文档写作指南，社区共建",
+    "category": "写作",
+    "tags": ["写作", "指南"],
+    "addedAt": "2026-04-09",
+    "screenshot": ""
+  },
+  {
+    "title": "使用 Claude 3.5 结对编程，效率提升不止一倍",
+    "url": "https://developer.aliyun.com/article/1724549",
+    "excerpt": "阿里云开发者社区文章，分享 Claude 3.5 结对编程的实践经验",
+    "category": "Claude code",
+    "tags": ["Claude Code", "结对编程", "效率"],
+    "addedAt": "2026-04-09",
+    "screenshot": ""
+  }
+]

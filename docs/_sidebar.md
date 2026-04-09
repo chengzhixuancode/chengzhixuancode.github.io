@@ -8,3 +8,7 @@
 - 🦀 OpenClaw
   - [概述与体验](/md/openclaw/overview.md)
 
+- 🔖 文章收藏
+  - [收藏列表](/md/bookmarks/README.md)
+
+
