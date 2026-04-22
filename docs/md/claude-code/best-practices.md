@@ -361,9 +361,9 @@ Claude Code 按 token 收费，合理控制成本：
 **实践建议：** 用 Sonnet 起步，复杂任务切 Opus，琐碎任务用 Haiku。根据任务复杂度选择合适的模型，不用大材小用。
 
 **思维深度控制：**
-- `think:` - 正常深度分析
-- `think harder:` - 更深入分析
-- `ultrathink:` - 最大深度推理，复杂问题更周全
+Claude Code 支持 Extended Thinking 扩展思考，可以按问题深度选择不同级别：
+- `think` / `think hard` / `think harder` / `ultrathink` 四个梯度
+- 详细说明参见：[Claude Code 进阶技巧 - 思维深度控制](/md/claude-code/advanced-tips.md#思维深度控制extended-thinking-扩展思考)
 
 ### 3. 循环检查
 
